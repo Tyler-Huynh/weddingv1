@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tyler &amp; Maggie's Wedding — Will You Be There?</title>
+
+<!--
+  ============================================================
+  EASY EDITS — change the details below and you're done.
+  Search for "EDIT ME" to find every spot you'd want to touch.
+  ============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Caveat:wght@500;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --forest: #5B6048;
+    --forest-dark: #3F4434;
+    --paper: #F2ECDF;
+    --paper-soft: #F8F3E7;
+    --rust: #A8674A;
+    --mustard: #C9A66B;
+    --denim: #7C8B86;
+    --ink: #36302A;
+    --thread: #A8674A;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Lora', serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .display{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .script{
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+  }
+
+  a{ color: inherit; }
+
+  /* subtle paper grain on light sections */
+  .grain{
+    position: relative;
+  }
+  .grain::before{
+    content:"";
+    position:absolute; inset:0;
+    pointer-events:none;
+    opacity:.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position: relative;
+    min-height: 100svh;
+    color: var(--paper-soft);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-end;
+    text-align:center;
+    overflow:hidden;
+    padding: 6rem 1.5rem 4.5rem;
+  }
+
+  .hero-photo{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit: cover;
+    object-position: 50% 28%;
+    filter: saturate(.85) contrast(.96) brightness(.97);
+    z-index:0;
+  }
+
+  .hero .grain-overlay{
+    position:absolute; inset:0;
+    z-index:1;
+    opacity:.14;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .hero .scrim{
+    position:absolute; inset:0;
+    z-index:1;
+    background: linear-gradient(180deg,
+      rgba(54,48,42,.45) 0%,
+      rgba(54,48,42,.05) 28%,
+      rgba(54,48,42,.05) 55%,
+      rgba(54,48,42,.55) 78%,
+      rgba(54,48,42,.85) 100%);
+  }
+
+  .hero-eyebrow{
+    font-family:'Caveat', cursive;
+    font-size: 1.6rem;
+    color: var(--mustard);
+    letter-spacing: .04em;
+    z-index: 2;
+    margin-bottom: .5rem;
+    text-shadow: 0 2px 12px rgba(0,0,0,.25);
+  }
+
+  .hero h1{
+    font-size: clamp(3rem, 9vw, 6.5rem);
+    line-height: 1;
+    letter-spacing: -.01em;
+    z-index: 2;
+    text-wrap: balance;
+    text-shadow: 0 4px 24px rgba(0,0,0,.3);
+  }
+
+  .hero .amp{
+    display:block;
+    font-family:'Caveat', cursive;
+    font-weight:700;
+    color: var(--mustard);
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    margin: -.3rem 0;
+    transform: rotate(-3deg);
+  }
+
+  .hero .date-line{
+    z-index: 2;
+    margin-top: 1.6rem;
+    font-size: 1.05rem;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: var(--paper-soft);
+    opacity: .9;
+    text-shadow: 0 2px 12px rgba(0,0,0,.25);
+  }
+
+  .hero .date-line span{ color: var(--mustard); }
+
+  .hero-scroll{
+    z-index:2;
+    margin-top: 2.5rem;
+    font-family:'Caveat', cursive;
+    font-size: 1.3rem;
+    color: var(--paper-soft);
+    opacity:.9;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:.3rem;
+    text-shadow: 0 2px 10px rgba(0,0,0,.3);
+  }
+  .hero-scroll svg{ animation: bob 2.2s ease-in-out infinite; }
+  @keyframes bob{ 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(8px);} }
+
+  /* ---------- countdown ---------- */
+  .countdown{
+    z-index: 2;
+    display:flex;
+    gap: 1.1rem;
+    margin-top: 1.9rem;
+  }
+  .countdown-unit{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    min-width: 52px;
+  }
+  .countdown-num{
+    font-family:'Fraunces', serif;
+    font-size: clamp(1.5rem, 4vw, 2.1rem);
+    font-weight:600;
+    color: var(--paper-soft);
+    text-shadow: 0 2px 14px rgba(0,0,0,.35);
+    line-height:1;
+  }
+  .countdown-label{
+    font-family:'Caveat', cursive;
+    font-size: .95rem;
+    color: var(--mustard);
+    margin-top: .15rem;
+  }
+
+  .calendar-btn{
+    z-index:2;
+    margin-top: 1.5rem;
+    background: transparent;
+    border: 1.5px solid rgba(248,243,231,.55);
+    color: var(--paper-soft);
+    font-family: 'Lora', serif;
+    font-size: .92rem;
+    letter-spacing: .03em;
+    padding: .55rem 1.2rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background .2s ease, transform .15s ease;
+  }
+  .calendar-btn:hover{
+    background: rgba(248,243,231,.15);
+    transform: translateY(-1px);
+  }
+
+  #mist-canvas{
+    position:absolute;
+    inset:0;
+    width:100%; height:100%;
+    z-index:1;
+    pointer-events:none;
+  }
+
+  /* ---------- flowing thread seams (three.js) ---------- */
+  .thread-seam{
+    position: relative;
+    width: 100%;
+    height: 130px;
+    overflow: hidden;
+  }
+  .thread-seam canvas{
+    display:block;
+    width:100%;
+    height:100%;
+  }
+  .thread-seam-1{
+    background: var(--paper);
+  }
+  .thread-seam-2{
+    background: linear-gradient(180deg, var(--paper) 0%, var(--forest) 100%);
+  }
+
+  /* ---------- SECTION SHARED ---------- */
+  section{
+    padding: 5.5rem 1.5rem;
+  }
+  .section-inner{
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .kicker{
+    font-family:'Caveat', cursive;
+    color: var(--rust);
+    font-size: 1.4rem;
+    margin-bottom: .25rem;
+    transform: rotate(-1.5deg);
+    display:inline-block;
+  }
+  .section-title{
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    margin-bottom: 1.2rem;
+  }
+
+  /* ---------- STORY ---------- */
+  .story{
+    text-align:center;
+    position: relative;
+  }
+  #leaves-canvas{
+    position:absolute;
+    inset:0;
+    width:100%; height:100%;
+    z-index:-1;
+    pointer-events:none;
+  }
+  .story p{
+    max-width: 620px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.85;
+    color: #4a3c2b;
+  }
+  .divider{
+    width: 70px;
+    height: 2px;
+    background: repeating-linear-gradient(90deg, var(--rust) 0 8px, transparent 8px 14px);
+    margin: 1.6rem auto;
+  }
+
+  /* ---------- DETAILS PATCHES ---------- */
+  .patches{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+    margin-top: 2.5rem;
+  }
+  .patch{
+    background: var(--paper-soft);
+    border: 2.5px dashed var(--rust);
+    border-radius: 14px;
+    padding: 2rem 1.5rem;
+    position: relative;
+    text-align:center;
+    box-shadow: 0 6px 0 -2px rgba(43,33,24,.06);
+  }
+  .patch::before, .patch::after,
+  .patch .corner-tl, .patch .corner-br{
+    content:"";
+    position:absolute;
+    width: 14px; height:14px;
+  }
+  .patch-icon{
+    width: 38px; height: 38px;
+    margin: 0 auto 1rem;
+    color: var(--denim);
+  }
+  .patch h3{
+    font-size: 1.25rem;
+    margin-bottom: .5rem;
+    color: var(--ink);
+  }
+  .patch p{
+    margin:0;
+    color:#5a4c3a;
+    font-size: .98rem;
+    line-height:1.6;
+  }
+  .patch .accent{
+    font-family:'Caveat', cursive;
+    color: var(--rust);
+    font-size: 1.15rem;
+    display:block;
+    margin-top: .4rem;
+  }
+
+  /* ---------- RSVP ---------- */
+  .rsvp-section{
+    background: var(--forest);
+    color: var(--paper-soft);
+    position: relative;
+  }
+  .rsvp-card{
+    max-width: 620px;
+    margin: 2.5rem auto 0;
+    background: var(--paper-soft);
+    color: var(--ink);
+    border-radius: 18px;
+    padding: clamp(1.75rem, 4vw, 3rem);
+    border: 3px dashed var(--mustard);
+    position: relative;
+    z-index: 1;
+  }
+  #medallion-canvas{
+    position:absolute;
+    top: -34px; left: 50%;
+    transform: translateX(-50%);
+    width: 68px; height: 68px;
+    z-index:2;
+    pointer-events:none;
+  }
+
+  .field{ margin-bottom: 1.4rem; }
+  .field label{
+    display:block;
+    font-size: .85rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--rust);
+    margin-bottom: .45rem;
+    font-weight: 600;
+  }
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="number"],
+  .field select,
+  .field textarea{
+    width:100%;
+    padding: .75rem .9rem;
+    border-radius: 8px;
+    border: 1.5px solid #c9bda0;
+    background: #fffdf8;
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    color: var(--ink);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline: 3px solid var(--denim);
+    outline-offset: 1px;
+  }
+  .field textarea{ resize: vertical; min-height: 80px; }
+
+  .additional-guest-input{
+    width:100%;
+    padding: .65rem .85rem;
+    border-radius: 8px;
+    border: 1.5px solid #c9bda0;
+    background: #fffdf8;
+    font-family: 'Lora', serif;
+    font-size: .95rem;
+    color: var(--ink);
+    margin-bottom: .6rem;
+  }
+  .additional-guest-input:last-child{ margin-bottom: 0; }
+  .additional-guest-input:focus{
+    outline: 3px solid var(--denim);
+    outline-offset: 1px;
+  }
+
+
+  /* ---------- tally strip ---------- */
+  .tally{
+    font-family:'Caveat', cursive;
+    font-size: 1.4rem;
+    color: var(--mustard);
+    margin: 0 0 .3rem;
+  }
+
+  /* ---------- fun fact flip card ---------- */
+  .fact-card{
+    display:block;
+    margin: 2rem auto 0;
+    max-width: 420px;
+    width:100%;
+    background: var(--paper-soft);
+    border: 2.5px dashed var(--denim);
+    border-radius: 14px;
+    padding: 1.4rem 1.6rem;
+    cursor: pointer;
+    font-family: 'Lora', serif;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .fact-card:hover{
+    transform: translateY(-2px) rotate(-0.4deg);
+    box-shadow: 0 6px 14px rgba(43,33,24,.08);
+  }
+  .fact-card:active{ transform: translateY(0); }
+  .fact-card-label{
+    display:block;
+    font-family:'Caveat', cursive;
+    font-size: 1.15rem;
+    color: var(--denim);
+    margin-bottom: .35rem;
+  }
+  .fact-card-text{
+    display:block;
+    font-size: 1.05rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  /* simple photo carousel */
+  .carousel{ position: relative; max-width: 420px; margin: 2rem auto 0; border-radius: 12px; overflow: visible; background: var(--paper-soft); display:flex; flex-direction:column; align-items:center; }
+  .carousel img{ display:block; width:100%; height: auto; max-height: 340px; object-fit: cover; border-radius: 8px 8px 0 0; }
+  .carousel-btn{ position:absolute; top:50%; transform: translateY(-50%); background: rgba(54,48,42,0.6); color: var(--paper-soft); border:none; width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:20px; line-height:36px; text-align:center; }
+  .carousel-btn.prev{ left:10px; }
+  .carousel-btn.next{ right:10px; }
+  .carousel-dots{ display:flex; gap:8px; justify-content:center; padding:10px 0; background:transparent; }
+  .carousel-dot{ width:10px; height:10px; border-radius:50%; background: rgba(54,48,42,0.2); cursor:pointer; }
+  .carousel-dot.active{ background: var(--rust); }
+  .carousel-caption{ position: static; margin-top: 8px; padding: 6px 12px; background: transparent; color: var(--ink); font-family: 'Lora', serif; font-size:0.98rem; text-align:center; border-radius: 0 0 8px 8px; }
+
+  .toggle-group{
+    display:flex;
+    gap: .8rem;
+    flex-wrap: wrap;
+  }
+  .toggle-group input{ position:absolute; opacity:0; pointer-events:none; }
+  .toggle-btn{
+    flex:1;
+    min-width: 130px;
+    text-align:center;
+    padding: .9rem 1rem;
+    border-radius: 10px;
+    border: 2px solid var(--ink);
+    background: #fffdf8;
+    cursor:pointer;
+    font-weight: 600;
+    font-family:'Fraunces', serif;
+    transition: all .15s ease;
+    user-select:none;
+  }
+  .toggle-btn:hover{ transform: translateY(-2px); }
+  input:checked + .toggle-btn{
+    background: var(--rust);
+    border-color: var(--rust);
+    color: var(--paper-soft);
+  }
+  input:focus-visible + .toggle-btn{
+    outline: 3px solid var(--denim);
+    outline-offset: 2px;
+  }
+
+  .stepper{
+    display:flex;
+    align-items:center;
+    gap: .8rem;
+  }
+  .stepper button{
+    width: 38px; height:38px;
+    border-radius: 50%;
+    border: 2px solid var(--ink);
+    background: var(--paper-soft);
+    font-size: 1.2rem;
+    cursor:pointer;
+    line-height:1;
+    font-family:'Fraunces',serif;
+  }
+  .stepper button:hover{ background: var(--mustard); }
+  .stepper span{ font-size: 1.2rem; min-width: 1.5rem; text-align:center; font-weight:600; }
+
+  .submit-btn{
+    width:100%;
+    margin-top: .5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    border: none;
+    background: var(--rust);
+    color: var(--paper-soft);
+    font-family:'Fraunces', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    cursor:pointer;
+    transition: transform .15s ease, background .15s ease;
+  }
+  .submit-btn:hover{ background: #9a4226; transform: translateY(-2px); }
+  .submit-btn:active{ transform: translateY(0); }
+
+  .hidden-fields{ display:none; }
+
+  .success{
+    display:none;
+    text-align:center;
+    padding: 2rem 0;
+  }
+  .success.show{ display:block; }
+  .rsvp-card.is-success .rsvp-form{ display:none; }
+  .success svg{ width:54px; height:54px; color: var(--rust); margin-bottom: 1rem; }
+  .success h3{ font-size: 1.5rem; margin-bottom: .5rem; }
+  .success p{ color:#5a4c3a; }
+
+  .form-note{
+    margin-top: 1.2rem;
+    font-size: .82rem;
+    color: rgba(239,230,210,.65);
+    text-align:center;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background: var(--paper);
+    text-align:center;
+    padding: 3.5rem 1.5rem 3rem;
+  }
+  footer .script{
+    font-size: 1.8rem;
+    color: var(--rust);
+    display:block;
+    transform: rotate(-1deg);
+    margin-bottom: .5rem;
+  }
+  footer .names{
+    font-family:'Fraunces', serif;
+    font-size: 1.1rem;
+    letter-spacing: .04em;
+    color: var(--ink);
+  }
+  footer svg{ width: 44px; margin-top: 1.5rem; opacity: .6; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 760px){
+    .patches{ grid-template-columns: 1fr; }
+    .hero{ padding: 5rem 1.25rem 10rem; }
+    section{ padding: 3.5rem 1.25rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .hero-scroll svg, .bird{ animation: none; }
+    html{ scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HERO  — EDIT ME: names, wedding date, location
+     ============================================================ -->
+<section class="hero">
+  <img class="hero-photo" src="engagement.jpg" alt="Tyler and Maggie on a misty dock by a mountain lake">
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="grain-overlay" aria-hidden="true"></div>
+  <canvas id="mist-canvas" aria-hidden="true"></canvas>
+
+  <h1>
+    Tyler
+    <span class="amp">&amp;</span>
+    Maggie
+  </h1>
+  <p class="date-line">May 15, 2027 <span>·</span> Cielo at Castle Pines, Castle Rock, CO</p>
+
+  <div class="countdown" id="countdown" aria-live="polite">
+    <div class="countdown-unit"><span class="countdown-num" id="cd-days">--</span><span class="countdown-label">days</span></div>
+    <div class="countdown-unit"><span class="countdown-num" id="cd-hours">--</span><span class="countdown-label">hrs</span></div>
+    <div class="countdown-unit"><span class="countdown-num" id="cd-mins">--</span><span class="countdown-label">min</span></div>
+    <div class="countdown-unit"><span class="countdown-num" id="cd-secs">--</span><span class="countdown-label">sec</span></div>
+  </div>
+
+  <button type="button" class="calendar-btn" id="calendarBtn">+ Add to calendar</button>
+
+  <a href="#rsvp" class="hero-scroll" aria-label="Scroll to RSVP form">
+    will you be there?
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 4v16M5 13l7 7 7-7"/></svg>
+  </a>
+</section>
+
+<div class="thread-seam thread-seam-1" aria-hidden="true">
+  <canvas id="thread-canvas-1"></canvas>
+</div>
+
+<!-- ============================================================
+     STORY  — EDIT ME: your story blurb
+     ============================================================ -->
+<section class="story grain">
+  <canvas id="leaves-canvas" aria-hidden="true"></canvas>
+  <div class="section-inner">
+    <span class="kicker">how it started</span>
+    <h2 class="section-title">A little bit of our story</h2>
+    <div class="divider"></div>
+    <p>
+      Tyler and Maggie are high school sweethearts! They met in October of 2018 at Outdoor Lab in Windy Peak, where they were both
+      high school leaders teaching children about the outdoors. They started dating soon after that and everything else has been bbq chicken from there.
+    </p>
+
+    <div class="carousel" id="photoCarousel" aria-label="Photo carousel">
+      <img id="carouselImage" src="engagement.jpg" alt="Wedding photo">
+      <div class="carousel-caption" id="carouselCaption">Tyler &amp; Maggie — engagement photo</div>
+      <button class="carousel-btn prev" id="carouselPrev" aria-label="Previous photo">‹</button>
+      <button class="carousel-btn next" id="carouselNext" aria-label="Next photo">›</button>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DETAILS  — EDIT ME: ceremony / reception / dress code copy
+     ============================================================ -->
+<section class="grain">
+  <div class="section-inner">
+    <span class="kicker">the details</span>
+    <h2 class="section-title">When &amp; where to find us</h2>
+    <span class="kicker">Cielo at Castle Pines | 485 W Happy Canyon Rd, Castle Rock, CO 80108</span>
+
+    <div class="patches">
+      <div class="patch">
+        <svg class="patch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <h3>Ceremony</h3>
+        <p>5:30 PM </p>
+        <span class="accent">We will start the ceremony promptly, guests are highly encouraged to arrive early, starting at 5:00pm</span>
+      </div>
+      <div class="patch">
+        <svg class="patch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V10l7-6 7 6v11M9 21v-6h6v6"/></svg>
+        <h3>Reception</h3>
+        <p>6:30 PM</p>
+        <span class="accent">Kindly join us for dinner, dancing, dessert, and drinks! We will be serving Chinese/Vietnamese family style cuisine, please indicate in the RSVP any allergies.</span>
+      </div>
+      <div class="patch">
+        <svg class="patch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7c2-3 14-3 16 0M6 9c0 8 1 11 6 11s6-3 6-11"/></svg>
+        <h3>What to Wear</h3>
+        <p>Black Tie Preferred<br></p>
+        <span class="accent">We ask that men wear a tuxedo or dark-colored suit and tie. For women, floor-length evening gowns are encouraged but a mid-length dress is also appropriate</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="thread-seam thread-seam-2" aria-hidden="true">
+  <canvas id="thread-canvas-2"></canvas>
+</div>
+
+<!-- ============================================================
+     RSVP FORM
+     Submits to /api/rsvp, a Vercel serverless function backed by
+     Postgres. No IDs to swap in here — see README.md for the
+     one-time database setup steps.
+     ============================================================ -->
+<section class="rsvp-section" id="rsvp">
+  <div class="section-inner" style="text-align:center;">
+    <span class="kicker" style="color: var(--mustard);">the favor of a reply</span>
+    <h2 class="section-title">RSVP</h2>
+    <p style="opacity:.85; max-width:480px; margin:0 auto;">Kindly respond by <strong>January 1, 2027</strong> so we can save you a seat by the fire.</p>
+    <p class="tally" id="tally">🍁 gathering the count...</p>
+  </div>
+
+  <div class="rsvp-card" id="rsvpCard">
+    <canvas id="medallion-canvas" aria-hidden="true"></canvas>
+    <form class="rsvp-form" id="rsvpForm" action="/api/rsvp" method="POST">
+
+      <div class="field">
+        <label for="fullName">Full name(s)</label>
+        <input type="text" id="fullName" name="Guest name" placeholder="Jordan Avery (+ guest, if joining)" required>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="Email" placeholder="you@example.com" required>
+      </div>
+
+      <div class="field">
+        <label>Will you be joining us?</label>
+        <div class="toggle-group" role="radiogroup">
+          <input type="radio" id="attendingYes" name="Attending" value="Joyfully accepts" checked>
+          <label for="attendingYes" class="toggle-btn">Joyfully accepts</label>
+
+          <input type="radio" id="attendingNo" name="Attending" value="Regretfully declines">
+          <label for="attendingNo" class="toggle-btn">Regretfully declines</label>
+        </div>
+      </div>
+
+      <div class="attending-only">
+        <div class="field">
+          <label>Number in your party</label>
+          <div class="stepper">
+            <button type="button" id="decrease" aria-label="Decrease guest count">−</button>
+            <span id="guestCount">1</span>
+            <button type="button" id="increase" aria-label="Increase guest count">+</button>
+          </div>
+          <input type="hidden" name="Party size" id="partySize" value="1">
+        </div>
+
+        <div class="field" id="additionalGuestsField" style="display:none;">
+          <label>Names of your guests</label>
+          <div id="additionalGuestsContainer"></div>
+        </div>
+
+        <div class="field">
+          <label for="allergies">Allergies or dietary restrictions</label>
+          <input type="text" id="allergies" name="Allergies" placeholder="e.g. peanut allergy, gluten-free, vegetarian">
+        </div>
+
+        <div class="field">
+          <label for="numOver21">Number of guests 21 or older</label>
+          <input type="number" id="numOver21" name="NumOver21" min="0" value="0">
+        </div>
+
+        <div class="field">
+          <label for="numUnder12">Number of children (12 or under)</label>
+          <input type="number" id="numUnder12" name="NumUnder12" min="0" value="0">
+        </div>
+        <div id="ageError" style="color: #A8674A; font-size: .95rem; display:none; margin-top: .25rem;"></div>
+      </div>
+
+      <div class="field">
+        <label for="notes">Notes for the couple (well wishes, questions, etc.)</label>
+        <textarea id="notes" name="Notes" placeholder="Anything we should know?"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Send our RSVP</button>
+      <p class="form-note" style="color:#7a6a52;">We'll send a confirmation to your email shortly after.</p>
+    </form>
+
+    <div class="success" id="successMsg">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg>
+      <h3>You're on the list!</h3>
+      <p>Thank you for letting us know — we can't wait to celebrate with you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="grain">
+  <span class="script">see you there</span>
+  <p class="names">Tyler Huynh &amp; Maggie Zhu</p>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 12c4-6 14-6 18 0M3 12c4 6 14 6 18 0" /></svg>
+</footer>
+
+<script>
+  // Ensure the site opens at the top on first load (don't auto-jump to #rsvp)
+  (function ensureTopOnLoad(){
+    if (location.hash && location.hash === '#rsvp'){
+      // remove hash from URL without creating a history entry
+      history.replaceState(null, '', location.pathname + location.search);
+      // scroll to top after small delay to allow browser layout
+      setTimeout(() => window.scrollTo({ top: 0 }), 20);
+    }
+  })();
+
+  // ---- guest count stepper + dynamic guest-name fields ----
+  const countEl = document.getElementById('guestCount');
+  const partySizeInput = document.getElementById('partySize');
+  const guestsField = document.getElementById('additionalGuestsField');
+  const guestsContainer = document.getElementById('additionalGuestsContainer');
+  let count = 1;
+  let savedGuestNames = [];
+
+  document.getElementById('increase').addEventListener('click', () => {
+    if (count < 8) { count++; updateCount(); }
+  });
+  document.getElementById('decrease').addEventListener('click', () => {
+    if (count > 1) { count--; updateCount(); }
+  });
+
+  function updateCount(){
+    countEl.textContent = count;
+    partySizeInput.value = count;
+    renderGuestNameFields();
+    validateAgeCounts();
+  }
+
+  function renderGuestNameFields(){
+    // Save whatever's currently typed before we rebuild the inputs
+    const currentInputs = guestsContainer.querySelectorAll('.additional-guest-input');
+    currentInputs.forEach((inp, i) => { savedGuestNames[i] = inp.value; });
+
+    guestsContainer.innerHTML = '';
+    const extraGuests = count - 1;
+
+    if (extraGuests <= 0){
+      guestsField.style.display = 'none';
+      return;
+    }
+    guestsField.style.display = 'block';
+    for (let i = 0; i < extraGuests; i++){
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.className = 'additional-guest-input';
+      input.placeholder = `Guest ${i + 2} full name`;
+      input.required = true;
+      input.value = savedGuestNames[i] || '';
+      // update savedGuestNames when name changes
+      input.addEventListener('input', () => { savedGuestNames[i] = input.value; });
+      guestsContainer.appendChild(input);
+    }
+    validateAgeCounts();
+  }
+
+  // ---- validate numeric age/child counts against party size ----
+  const ageErrorEl = document.getElementById('ageError');
+  function validateAgeCounts(){
+    const submitBtn = document.querySelector('#rsvpForm .submit-btn');
+    // If the guest is declining, skip validation
+    if (document.getElementById('attendingNo')?.checked){
+      ageErrorEl.style.display = 'none';
+      if (submitBtn) submitBtn.disabled = false;
+      return true;
+    }
+    const party = Number(partySizeInput.value || 0);
+    const over = Number(document.getElementById('numOver21')?.value || 0);
+    const under = Number(document.getElementById('numUnder12')?.value || 0);
+    if (over < 0 || under < 0) {
+      ageErrorEl.textContent = 'Values cannot be negative.';
+      ageErrorEl.style.display = 'block';
+      if (submitBtn) submitBtn.disabled = true;
+      return false;
+    }
+    if (over + under > party){
+      ageErrorEl.textContent = `The total of 21+ and children (12 or under) cannot exceed your party size (${party}).`;
+      ageErrorEl.style.display = 'block';
+      if (submitBtn) submitBtn.disabled = true;
+      return false;
+    }
+    ageErrorEl.style.display = 'none';
+    if (submitBtn) submitBtn.disabled = false;
+    return true;
+  }
+
+  // validate as the user types
+  document.getElementById('numOver21')?.addEventListener('input', validateAgeCounts);
+  document.getElementById('numUnder12')?.addEventListener('input', validateAgeCounts);
+
+  // ---- show/hide attending-only fields ----
+  const attendingOnly = document.querySelector('.attending-only');
+  const radios = document.querySelectorAll('input[name="Attending"]');
+  function syncAttending(){
+    const declining = document.getElementById('attendingNo').checked;
+    attendingOnly.style.display = declining ? 'none' : 'block';
+  }
+  radios.forEach(r => r.addEventListener('change', syncAttending));
+  syncAttending();
+
+  // ---- form submit: posts JSON to /api/rsvp (Vercel function + Postgres) ----
+  const form = document.getElementById('rsvpForm');
+  const card = document.getElementById('rsvpCard');
+  const successMsg = document.getElementById('successMsg');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = form.querySelector('.submit-btn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    // validation: ensure counts don't exceed party size
+    if (!validateAgeCounts()){
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send our RSVP';
+      return;
+    }
+
+    const guestNameInputs = Array.from(guestsContainer.querySelectorAll('.additional-guest-input'));
+    const guestNames = guestNameInputs.map(inp => inp.value.trim()).filter(Boolean);
+
+    // aggregate counts (numeric inputs)
+    const numOver21 = Number(document.getElementById('numOver21')?.value || 0);
+    const numUnder12 = Number(document.getElementById('numUnder12')?.value || 0);
+
+    const payload = {
+      guestName: document.getElementById('fullName').value,
+      email: document.getElementById('email').value,
+      attending: document.getElementById('attendingNo').checked
+        ? 'Regretfully declines'
+        : 'Joyfully accepts',
+      partySize: document.getElementById('partySize').value,
+      guestNames: guestNames,
+      allergies: document.getElementById('allergies').value,
+      numOver21,
+      numUnder12,
+      notes: document.getElementById('notes').value,
+    };
+
+    try {
+      const res = await fetch(form.getAttribute('action'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error('Submission failed');
+      card.classList.add('is-success');
+      successMsg.classList.add('show');
+      launchLeafBurst();
+      loadTally();
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send our RSVP';
+      alert("Something went wrong sending your RSVP — please try again, or email us directly.");
+    }
+  });
+
+  // ---- countdown to the big day ----
+  (function initCountdown(){
+    const target = new Date('2027-05-15T16:00:00-04:00').getTime();
+    const els = {
+      days: document.getElementById('cd-days'),
+      hours: document.getElementById('cd-hours'),
+      mins: document.getElementById('cd-mins'),
+      secs: document.getElementById('cd-secs'),
+    };
+    if (!els.days) return;
+    function tick(){
+      const diff = target - Date.now();
+      if (diff <= 0){
+        els.days.textContent = els.hours.textContent = els.mins.textContent = els.secs.textContent = '0';
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      els.days.textContent = d;
+      els.hours.textContent = String(h).padStart(2, '0');
+      els.mins.textContent = String(m).padStart(2, '0');
+      els.secs.textContent = String(s).padStart(2, '0');
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  // ---- add to calendar (.ics download, no backend needed) ----
+  document.getElementById('calendarBtn')?.addEventListener('click', () => {
+    const ics = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'BEGIN:VEVENT',
+      'SUMMARY:Tyler & Maggie\'s Wedding',
+      'DTSTART:20270515T160000',
+      'DTEND:20270515T230000',
+      'LOCATION:Cielo at Castle Pines\\ 485 W Happy Canyon Rd\, Castle Rock\\, CO',
+      'DESCRIPTION:Ceremony at 5:30 PM\\, reception to follow.',
+      'END:VEVENT',
+      'END:VCALENDAR'
+    ].join('\r\n');
+    const blob = new Blob([ics], { type: 'text/calendar' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'tyler-and-maggie-wedding.ics';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  });
+
+  // ---- live "who's coming" tally from /api/stats ----
+  async function loadTally(){
+    const el = document.getElementById('tally');
+    if (!el) return;
+    try {
+      const res = await fetch('/api/stats');
+      if (!res.ok) throw new Error('Failed to load stats');
+      const { attendingCount, totalGuests } = await res.json();
+      if (!attendingCount){
+        el.textContent = '🍁 be the first to RSVP!';
+        return;
+      }
+      el.textContent = `🍁 ${totalGuests} ${totalGuests === 1 ? 'friend is' : 'friends are'} already celebrating with us`;
+    } catch (err) {
+      el.style.display = 'none';
+    }
+  }
+  loadTally();
+
+  // ---- photo carousel ----
+    (function initCarousel(){
+    const carouselImages = [
+      { src: 'engagement.jpg', caption: "Engagement photos at Lily Lake in Rocky Mountain National Park" }
+      // add more objects here: { src: 'photo2.jpg', caption: 'Caption text' }
+    ];
+    const imgEl = document.getElementById('carouselImage');
+    const captionEl = document.getElementById('carouselCaption');
+    const prevBtn = document.getElementById('carouselPrev');
+    const nextBtn = document.getElementById('carouselNext');
+    const dots = document.getElementById('carouselDots');
+    if (!imgEl || !dots) return;
+
+    let idx = 0;
+    function buildDots(){
+      dots.innerHTML = '';
+      carouselImages.forEach((_, i) => {
+        const d = document.createElement('div');
+        d.className = 'carousel-dot';
+        if (i === idx) d.classList.add('active');
+        d.addEventListener('click', () => show(i));
+        dots.appendChild(d);
+      });
+    }
+    function show(i){
+      idx = (i + carouselImages.length) % carouselImages.length;
+      const item = carouselImages[idx];
+      imgEl.src = item.src || item;
+      captionEl.textContent = item.caption || '';
+    }
+    prevBtn?.addEventListener('click', () => show(idx - 1));
+    nextBtn?.addEventListener('click', () => show(idx + 1));
+
+    show(0);
+
+    if (carouselImages.length > 1){
+      let auto = setInterval(() => show(idx + 1), 5000);
+      [imgEl, prevBtn, nextBtn].forEach(el => el?.addEventListener('mouseover', () => clearInterval(auto)));
+      [imgEl, prevBtn, nextBtn].forEach(el => el?.addEventListener('mouseout', () => auto = setInterval(() => show(idx + 1), 5000)));
+    }
+  })();
+
+  // ---- leaf-confetti burst on successful RSVP ----
+  function launchLeafBurst(){
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const canvas = document.createElement('canvas');
+    canvas.style.position = 'fixed';
+    canvas.style.inset = '0';
+    canvas.style.width = '100vw';
+    canvas.style.height = '100vh';
+    canvas.style.zIndex = '9999';
+    canvas.style.pointerEvents = 'none';
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    const dpr = Math.min(window.devicePixelRatio, 2);
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    ctx.scale(dpr, dpr);
+
+    const colors = ['#A8674A', '#C9A66B', '#7C8B86', '#8C7A54'];
+    const rsvpCardEl = document.getElementById('rsvpCard');
+    const rect = rsvpCardEl ? rsvpCardEl.getBoundingClientRect() : { left: window.innerWidth/2, top: window.innerHeight/2, width: 0 };
+    const originX = rect.left + rect.width / 2;
+
+    const particles = Array.from({ length: 70 }, () => ({
+      x: originX + (Math.random() - 0.5) * 120,
+      y: rect.top,
+      vx: (Math.random() - 0.5) * 4,
+      vy: -(4 + Math.random() * 5),
+      rot: Math.random() * Math.PI * 2,
+      vr: (Math.random() - 0.5) * 0.2,
+      size: 6 + Math.random() * 6,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      life: 0,
+    }));
+
+    let frame = 0;
+    function draw(){
+      frame++;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      let alive = false;
+      particles.forEach(p => {
+        p.vy += 0.15;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.rot += p.vr;
+        p.life++;
+        if (p.life < 140) alive = true;
+        const fade = Math.max(0, 1 - p.life / 140);
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.globalAlpha = fade;
+        ctx.fillStyle = p.color;
+        ctx.beginPath();
+        ctx.moveTo(0, -p.size);
+        ctx.quadraticCurveTo(p.size * 0.7, -p.size * 0.3, 0, p.size);
+        ctx.quadraticCurveTo(-p.size * 0.7, -p.size * 0.3, 0, -p.size);
+        ctx.fill();
+        ctx.restore();
+      });
+      if (alive){
+        requestAnimationFrame(draw);
+      } else {
+        canvas.remove();
+      }
+    }
+    draw();
+  }
+</script>
+
+<!-- ============================================================
+     THREE.JS — soft hero mist + flowing stitched-thread seams
+     Loaded from CDN; requires an internet connection to render.
+     Both effects degrade gracefully (static fallback) if the
+     module fails to load or the visitor prefers reduced motion.
+     ============================================================ -->
+<script type="module">
+  import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isSmall = window.innerWidth < 700;
+
+  /* ---------- hero mist: soft drifting motes over the photo ---------- */
+  function initMist(){
+    const canvas = document.getElementById('mist-canvas');
+    if (!canvas) return;
+    const hero = canvas.parentElement;
+
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(50, hero.clientWidth / hero.clientHeight, 0.1, 100);
+    camera.position.z = 10;
+
+    function size(){
+      const w = hero.clientWidth, h = hero.clientHeight;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
+    size();
+
+    // soft circular sprite, drawn once onto a small canvas texture
+    const spriteCanvas = document.createElement('canvas');
+    spriteCanvas.width = spriteCanvas.height = 64;
+    const sctx = spriteCanvas.getContext('2d');
+    const grad = sctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+    grad.addColorStop(0, 'rgba(255,250,235,0.95)');
+    grad.addColorStop(1, 'rgba(255,250,235,0)');
+    sctx.fillStyle = grad;
+    sctx.fillRect(0, 0, 64, 64);
+    const spriteTex = new THREE.CanvasTexture(spriteCanvas);
+
+    // restore the original discrete mist look with fewer, smaller motes
+    const COUNT = isSmall ? 30 : 70;
+    const positions = new Float32Array(COUNT * 3);
+    const speeds = new Float32Array(COUNT);
+    for (let i = 0; i < COUNT; i++){
+      positions[i * 3]     = (Math.random() - 0.5) * 16;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 10;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 8;
+      speeds[i] = 0.18 + Math.random() * 0.18;
+    }
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+    const mat = new THREE.PointsMaterial({
+      size: isSmall ? 0.22 : 0.26,
+      map: spriteTex,
+      transparent: true,
+      opacity: 0.28,
+      depthWrite: false,
+      blending: THREE.NormalBlending,
+    });
+    scene.add(new THREE.Points(geo, mat));
+
+    let mouseX = 0, mouseY = 0;
+    hero.addEventListener('pointermove', (e) => {
+      const r = hero.getBoundingClientRect();
+      mouseX = (e.clientX - r.left) / r.width - 0.5;
+      mouseY = (e.clientY - r.top) / r.height - 0.5;
+    });
+
+    // subtle scroll-driven parallax + 'open' animation: camera zooms out / FOV widens
+    let scrollY = 0;
+    let heroHeight = hero.clientHeight || window.innerHeight;
+    window.addEventListener('resize', () => { heroHeight = hero.clientHeight || window.innerHeight; });
+    window.addEventListener('scroll', () => { scrollY = window.scrollY; }, { passive: true });
+
+    const clock = new THREE.Clock();
+    function animate(){
+      requestAnimationFrame(animate);
+      if (!reduceMotion){
+        const dt = Math.min(clock.getDelta(), 0.05);
+        const pos = geo.attributes.position.array;
+        for (let i = 0; i < COUNT; i++){
+          pos[i * 3 + 1] += speeds[i] * dt * 0.6;
+          pos[i * 3] += Math.sin(clock.elapsedTime * 0.3 + i) * 0.0015;
+          if (pos[i * 3 + 1] > 5) pos[i * 3 + 1] = -5;
+        }
+        geo.attributes.position.needsUpdate = true;
+        // combine pointer parallax with a gentle scroll offset (use window/hero height)
+        const targetX = mouseX * 0.8;
+        const scrollFactor = heroHeight ? Math.min(scrollY / heroHeight, 1) : 0;
+        // amplify scroll effect slightly so it's noticeable but subtle
+        const targetY = -mouseY * 0.45 - (scrollFactor * 1.2);
+        camera.position.x += (targetX - camera.position.x) * 0.06;
+        camera.position.y += (targetY - camera.position.y) * 0.06;
+        // 'open up' effect: slowly increase camera distance and field of view as user scrolls
+        const baseZ = 10;
+        const targetZ = baseZ + scrollFactor * 8; // zoom out up to +8 units
+        camera.position.z += (targetZ - camera.position.z) * 0.05;
+        const baseFov = 50;
+        camera.fov = baseFov + scrollFactor * 12; // widen fov slightly
+        camera.updateProjectionMatrix();
+        camera.lookAt(0, 0, 0);
+      }
+      renderer.render(scene, camera);
+    }
+    animate();
+    window.addEventListener('resize', size);
+  }
+
+  /* ---------- flowing stitched-thread seam dividers ---------- */
+  function initThread(canvasId, color){
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    const wrap = canvas.parentElement;
+
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    const scene = new THREE.Scene();
+    let w = wrap.clientWidth, h = wrap.clientHeight;
+    const camera = new THREE.OrthographicCamera(0, w, h, 0, -10, 10);
+
+    let mat;
+    function build(){
+      w = wrap.clientWidth; h = wrap.clientHeight;
+      renderer.setSize(w, h, false);
+      camera.right = w; camera.top = h;
+      camera.updateProjectionMatrix();
+
+      const segments = 220;
+      const points = [];
+      for (let i = 0; i <= segments; i++){
+        const t = i / segments;
+        const x = t * w;
+        const y = h / 2
+          + Math.sin(t * Math.PI * 2.4) * h * 0.22
+          + Math.sin(t * Math.PI * 5.1) * h * 0.06;
+        points.push(new THREE.Vector3(x, y, 0));
+      }
+      const geo = new THREE.BufferGeometry().setFromPoints(points);
+      mat = new THREE.LineDashedMaterial({
+        color,
+        dashSize: 10,
+        gapSize: 7,
+        transparent: true,
+        opacity: 0.55,
+      });
+      const line = new THREE.Line(geo, mat);
+      line.computeLineDistances();
+      scene.clear();
+      scene.add(line);
+    }
+    build();
+
+    function animate(){
+      requestAnimationFrame(animate);
+      if (!reduceMotion && mat) mat.dashOffset -= 0.25;
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(build, 150);
+    });
+  }
+
+  /* ---------- falling leaves drifting through the story section ---------- */
+  function makeLeafTexture(color){
+    const c = document.createElement('canvas');
+    c.width = c.height = 64;
+    const ctx = c.getContext('2d');
+    ctx.translate(32, 32);
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.moveTo(0, -24);
+    ctx.quadraticCurveTo(12, -6, 0, 24);
+    ctx.quadraticCurveTo(-12, -6, 0, -24);
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(0,0,0,0.18)';
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    ctx.moveTo(0, -18);
+    ctx.lineTo(0, 20);
+    ctx.stroke();
+    return new THREE.CanvasTexture(c);
+  }
+
+  function initLeaves(canvasId){
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    const wrap = canvas.parentElement;
+
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, wrap.clientWidth / wrap.clientHeight, 0.1, 50);
+    camera.position.set(0, 0, 18);
+
+    function size(){
+      const w = wrap.clientWidth, h = wrap.clientHeight;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
+    size();
+
+    const leafTextures = [
+      makeLeafTexture('#A8674A'),
+      makeLeafTexture('#C9A66B'),
+      makeLeafTexture('#7C8B86'),
+    ];
+
+    const COUNT = isSmall ? 30 : 52;
+    const leaves = [];
+
+    for (let i = 0; i < COUNT; i++){
+      const mat = new THREE.MeshBasicMaterial({
+        map: leafTextures[i % leafTextures.length],
+        transparent: true,
+        opacity: 0.92,
+        side: THREE.DoubleSide,
+        depthWrite: false,
+      });
+      const mesh = new THREE.Mesh(new THREE.PlaneGeometry(1.0, 1.0), mat);
+      const scale = 0.55 + Math.random() * 0.45;
+      mesh.scale.set(scale, scale, scale);
+      const baseX = (Math.random() - 0.5) * 16;
+      mesh.position.set(baseX, Math.random() * 10 - 2, (Math.random() - 0.5) * 6);
+      mesh.rotation.z = Math.random() * Math.PI * 2;
+      mesh.userData = {
+        fallSpeed: 0.35 + Math.random() * 0.45,
+        swayFreq: 0.45 + Math.random() * 0.45,
+        swayAmp: 0.4 + Math.random() * 0.6,
+        spinSpeed: (Math.random() - 0.5) * 0.9,
+        phase: Math.random() * Math.PI * 2,
+        baseX,
+      };
+      scene.add(mesh);
+      leaves.push(mesh);
+    }
+
+    const ambient = new THREE.AmbientLight(0xffffff, 0.65);
+    scene.add(ambient);
+
+    const clock = new THREE.Clock();
+    function animate(){
+      requestAnimationFrame(animate);
+      if (!reduceMotion){
+        const dt = Math.min(clock.getDelta(), 0.05);
+        const t = clock.elapsedTime;
+        leaves.forEach((leaf) => {
+          const u = leaf.userData;
+          leaf.position.y -= u.fallSpeed * dt;
+
+          leaf.position.x = u.baseX + Math.sin(t * u.swayFreq + u.phase) * u.swayAmp * 0.2;
+
+          leaf.rotation.z += u.spinSpeed * dt;
+          leaf.rotation.x = Math.sin(t * u.swayFreq * 0.6 + u.phase) * 0.4;
+          if (leaf.position.y < -8){
+            leaf.position.y = 8;
+            leaf.userData.baseX = (Math.random() - 0.5) * 16;
+          }
+        });
+      }
+      renderer.render(scene, camera);
+    }
+    animate();
+    window.addEventListener('resize', size);
+  }
+
+  /* ---------- small rotating 3D medallion above the RSVP card ---------- */
+  function initMedallion(canvasId){
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(68, 68, false);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 20);
+    camera.position.set(0, 0, 5);
+
+    scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+    const dir = new THREE.DirectionalLight(0xfff2dd, 1.1);
+    dir.position.set(2, 3, 4);
+    scene.add(dir);
+
+    const group = new THREE.Group();
+    const ring = new THREE.Mesh(
+      new THREE.TorusGeometry(1.05, 0.16, 24, 64),
+      new THREE.MeshStandardMaterial({ color: 0xC9A66B, metalness: 0.55, roughness: 0.35 })
+    );
+    const gem = new THREE.Mesh(
+      new THREE.OctahedronGeometry(0.55, 0),
+      new THREE.MeshStandardMaterial({ color: 0xA8674A, metalness: 0.3, roughness: 0.25 })
+    );
+    group.add(ring, gem);
+    scene.add(group);
+
+    const clock = new THREE.Clock();
+    function animate(){
+      requestAnimationFrame(animate);
+      if (!reduceMotion){
+        const t = clock.getElapsedTime();
+        group.rotation.y = t * 0.6;
+        group.rotation.x = Math.sin(t * 0.5) * 0.25;
+        group.position.y = Math.sin(t * 1.2) * 0.06;
+      }
+      renderer.render(scene, camera);
+    }
+    animate();
+  }
+
+  try {
+    initMist();
+    initThread('thread-canvas-1', 0xA8674A); // rust thread on cream
+    initThread('thread-canvas-2', 0xE7D9B8); // pale gold thread into the sage section
+    initLeaves('leaves-canvas');
+    initMedallion('medallion-canvas');
+  } catch (err) {
+    // Three.js failed to load (e.g. offline) — the page still works fine without it.
+    console.warn('Decorative three.js layer skipped:', err);
+  }
+</script>
+
+</body>
+</html>

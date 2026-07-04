@@ -1,0 +1,12 @@
+{
+  "name": "maggie-tyler-wedding-rsvp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Wedding RSVP site with a Vercel serverless API + Postgres backend",
+  "engines": {
+    "node": ">=18.x"
+  },
+  "dependencies": {
+    "@vercel/postgres": ">=0.9.0"
+  }
+}

@@ -17,7 +17,7 @@
 
 <style>
   :root{
-    --forest: #5B6048;
+    --forest: #4B6B4F;
     --forest-dark: #3F4434;
     --paper: #F2ECDF;
     --paper-soft: #F8F3E7;
@@ -192,7 +192,8 @@
     margin-top: .15rem;
   }
 
-  .calendar-btn{
+  .calendar-btn,
+  .audio-toggle{
     z-index:2;
     margin-top: 1.5rem;
     background: transparent;
@@ -204,11 +205,16 @@
     padding: .55rem 1.2rem;
     border-radius: 999px;
     cursor: pointer;
-    transition: background .2s ease, transform .15s ease;
+    transition: background .2s ease, transform .15s ease, border-color .2s ease;
   }
-  .calendar-btn:hover{
+  .calendar-btn:hover,
+  .audio-toggle:hover{
     background: rgba(248,243,231,.15);
     transform: translateY(-1px);
+  }
+  .audio-toggle.is-on{
+    background: rgba(201, 166, 107, .22);
+    border-color: var(--mustard);
   }
 
   #mist-canvas{
@@ -331,6 +337,167 @@
     margin-top: .4rem;
   }
 
+  /* ---------- REGISTRY ---------- */
+  .registry-section{
+    background: linear-gradient(180deg, var(--paper-soft) 0%, #f6efe2 100%);
+    position: relative;
+  }
+  .registry-intro{
+    max-width: 680px;
+    margin: 0 auto 2rem;
+    text-align: center;
+    color: #5a4c3a;
+    line-height: 1.75;
+  }
+  .registry-scroller{
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: .35rem 0 1rem;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+    justify-content: center;
+    align-items: stretch;
+  }
+  .registry-card{
+    flex: 0 0 min(82%, 280px);
+    max-width: 280px;
+    background: var(--paper);
+    border: 2.5px dashed rgba(168, 103, 74, .45);
+    border-radius: 18px;
+    padding: 1.3rem 1.2rem;
+    box-shadow: 0 12px 26px rgba(54, 48, 42, .08);
+    cursor: pointer;
+    scroll-snap-align: start;
+    transform-style: preserve-3d;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    will-change: transform;
+  }
+  .registry-card:hover,
+  .registry-card:focus-visible{
+    box-shadow: 0 16px 30px rgba(54, 48, 42, .12);
+    border-color: var(--rust);
+    outline: none;
+  }
+  .registry-card.active{
+    border-color: var(--rust);
+    box-shadow: 0 16px 30px rgba(54, 48, 42, .16);
+  }
+  .registry-card .emoji{
+    font-size: 1.8rem;
+    margin-bottom: .7rem;
+  }
+  .registry-card h3{
+    font-size: 1.2rem;
+    margin-bottom: .4rem;
+  }
+  .registry-card p{
+    margin: 0;
+    font-size: .95rem;
+    line-height: 1.6;
+    color: #5a4c3a;
+  }
+  .registry-card .tag{
+    display: inline-flex;
+    align-self: flex-start;
+    margin-top: 1rem;
+    padding: .35rem .65rem;
+    border-radius: 999px;
+    background: rgba(201, 166, 107, .18);
+    color: var(--rust);
+    font-size: .8rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .registry-detail{
+    margin-top: 1.4rem;
+    background: var(--paper-soft);
+    border: 2px solid rgba(91, 96, 72, .18);
+    border-radius: 18px;
+    padding: 1.4rem 1.5rem;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.5);
+  }
+  .registry-detail h3{
+    color: var(--forest-dark);
+    margin-bottom: .55rem;
+  }
+  .registry-detail p{
+    margin: 0;
+    color: #5a4c3a;
+    line-height: 1.75;
+  }
+  .registry-detail .detail-link{
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--rust);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .registry-detail .detail-link:hover{ text-decoration: underline; }
+
+  /* ---------- WEDDING PARTY ---------- */
+  .wedding-party-section{
+    background: linear-gradient(180deg, var(--paper-soft) 0%, var(--paper) 100%);
+  }
+  .wedding-party-intro{
+    max-width: 680px;
+    margin: 0 auto 2rem;
+    text-align: center;
+    color: #5a4c3a;
+    line-height: 1.75;
+  }
+  .wedding-party-scroller{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .wedding-party-card{
+    background: var(--paper-soft);
+    border: 2.5px dashed rgba(124, 139, 134, .35);
+    border-radius: 18px;
+    padding: 1.15rem;
+    box-shadow: 0 12px 24px rgba(54, 48, 42, .08);
+  }
+  .wedding-party-card h3{
+    font-size: 1.2rem;
+    margin-bottom: .8rem;
+    color: var(--ink);
+  }
+  .wedding-party-group{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .8rem;
+  }
+  .wedding-party-person{
+    text-align: center;
+  }
+  .wedding-party-photo{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 2px solid rgba(168, 103, 74, .2);
+    margin-bottom: .6rem;
+    background: #e7dbc3;
+  }
+  .wedding-party-name{
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--ink);
+    display: block;
+  }
+  .wedding-party-role{
+    font-size: .88rem;
+    color: var(--rust);
+    display: block;
+    margin-top: .2rem;
+    font-family: 'Caveat', cursive;
+  }
+
   /* ---------- RSVP ---------- */
   .rsvp-section{
     background: var(--forest);
@@ -448,7 +615,7 @@
 
   /* simple photo carousel */
   .carousel{ position: relative; max-width: 420px; margin: 2rem auto 0; border-radius: 12px; overflow: visible; background: var(--paper-soft); display:flex; flex-direction:column; align-items:center; }
-  .carousel img{ display:block; width:100%; height: auto; max-height: 340px; object-fit: cover; border-radius: 8px 8px 0 0; }
+  .carousel img{ display:block; width:100%; height: auto; max-height: 340px; object-fit: cover; border-radius: 8px 8px 0 0; transition: opacity .45s ease; }
   .carousel-btn{ position:absolute; top:50%; transform: translateY(-50%); background: rgba(54,48,42,0.6); color: var(--paper-soft); border:none; width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:20px; line-height:36px; text-align:center; }
   .carousel-btn.prev{ left:10px; }
   .carousel-btn.next{ right:10px; }
@@ -603,16 +770,13 @@
   </div>
 
   <button type="button" class="calendar-btn" id="calendarBtn">+ Add to calendar</button>
+  <button type="button" class="audio-toggle" id="audioToggle" aria-pressed="false">♫ Ambient audio</button>
 
   <a href="#rsvp" class="hero-scroll" aria-label="Scroll to RSVP form">
     will you be there?
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 4v16M5 13l7 7 7-7"/></svg>
   </a>
 </section>
-
-<div class="thread-seam thread-seam-1" aria-hidden="true">
-  <canvas id="thread-canvas-1"></canvas>
-</div>
 
 <!-- ============================================================
      STORY  — EDIT ME: your story blurb
@@ -672,6 +836,156 @@
 
 <div class="thread-seam thread-seam-2" aria-hidden="true">
   <canvas id="thread-canvas-2"></canvas>
+</div>
+
+
+<section class="wedding-party-section grain" aria-labelledby="wedding-party-title">
+  <div class="section-inner">
+    <span class="kicker">the people beside us</span>
+    <h2 class="section-title" id="wedding-party-title">Our wedding party</h2>
+    <p class="wedding-party-intro">Our wedding party, some of the people closest to us who have been on our journey with us.</p>
+
+    <div class="wedding-party-scroller">
+      <article class="wedding-party-card">
+        <h3>The Boys</h3>
+        <div class="wedding-party-group">
+          <div class="wedding-party-person">
+            <img class="wedding-party-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' rx='32' fill='%23E7DBC3'/%3E%3Ccircle cx='150' cy='120' r='58' fill='%23A8674A'/%3E%3Cpath d='M70 260c12-54 48-82 80-82s68 28 80 82' fill='%237C8B86'/%3E%3C/svg%3E" alt="Sample wedding party photo">
+            <span class="wedding-party-name">Andy</span>
+            <span class="wedding-party-role">Best Men</span>
+          </div>
+          <div class="wedding-party-person">
+            <img class="wedding-party-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' rx='32' fill='%23E7DBC3'/%3E%3Ccircle cx='150' cy='120' r='58' fill='%23A8674A'/%3E%3Cpath d='M70 260c12-54 48-82 80-82s68 28 80 82' fill='%237C8B86'/%3E%3C/svg%3E" alt="Sample wedding party photo">
+            <span class="wedding-party-name">Piti</span>
+            <span class="wedding-party-role">Best Men</span>
+          </div>
+          <div class="wedding-party-person">
+            <img class="wedding-party-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' rx='32' fill='%23E7DBC3'/%3E%3Ccircle cx='150' cy='120' r='58' fill='%23A8674A'/%3E%3Cpath d='M70 260c12-54 48-82 80-82s68 28 80 82' fill='%237C8B86'/%3E%3C/svg%3E" alt="Sample wedding party photo">
+            <span class="wedding-party-name">Will</span>
+            <span class="wedding-party-role">Groomsmen</span>
+          </div>
+          <div class="wedding-party-person">
+            <img class="wedding-party-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' rx='32' fill='%23E7DBC3'/%3E%3Ccircle cx='150' cy='120' r='58' fill='%23A8674A'/%3E%3Cpath d='M70 260c12-54 48-82 80-82s68 28 80 82' fill='%237C8B86'/%3E%3C/svg%3E" alt="Sample wedding party photo">
+            <span class="wedding-party-name">Andrew</span>
+            <span class="wedding-party-role">Groomsmen</span>
+          </div>
+          <div class="wedding-party-person">
+            <img class="wedding-party-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' rx='32' fill='%23E7DBC3'/%3E%3Ccircle cx='150' cy='120' r='58' fill='%23A8674A'/%3E%3Cpath d='M70 260c12-54 48-82 80-82s68 28 80 82' fill='%237C8B86'/%3E%3C/svg%3E" alt="Sample wedding party photo">
+            <span class="wedding-party-name">Kharol</span>
+            <span class="wedding-party-role">Groomsmen</span>
+          </div>
+          <div class="wedding-party-person">
+            <img class="wedding-party-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' rx='32' fill='%23E7DBC3'/%3E%3Ccircle cx='150' cy='120' r='58' fill='%23A8674A'/%3E%3Cpath d='M70 260c12-54 48-82 80-82s68 28 80 82' fill='%237C8B86'/%3E%3C/svg%3E" alt="Sample wedding party photo">
+            <span class="wedding-party-name">Tuan</span>
+            <span class="wedding-party-role">Groomsmen</span>
+          </div>
+          <div class="wedding-party-person">
+            <img class="wedding-party-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' rx='32' fill='%23E7DBC3'/%3E%3Ccircle cx='150' cy='120' r='58' fill='%23A8674A'/%3E%3Cpath d='M70 260c12-54 48-82 80-82s68 28 80 82' fill='%237C8B86'/%3E%3C/svg%3E" alt="Sample wedding party photo">
+            <span class="wedding-party-name">Brian</span>
+            <span class="wedding-party-role">Groomsmen</span>
+          </div>
+          <div class="wedding-party-person">
+            <img class="wedding-party-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' rx='32' fill='%23E7DBC3'/%3E%3Ccircle cx='150' cy='120' r='58' fill='%23A8674A'/%3E%3Cpath d='M70 260c12-54 48-82 80-82s68 28 80 82' fill='%237C8B86'/%3E%3C/svg%3E" alt="Sample wedding party photo">
+            <span class="wedding-party-name">Henry</span>
+            <span class="wedding-party-role">Groomsmen</span>
+          </div>
+          <div class="wedding-party-person">
+            <img class="wedding-party-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' rx='32' fill='%23E7DBC3'/%3E%3Ccircle cx='150' cy='120' r='58' fill='%23A8674A'/%3E%3Cpath d='M70 260c12-54 48-82 80-82s68 28 80 82' fill='%237C8B86'/%3E%3C/svg%3E" alt="Sample wedding party photo">
+            <span class="wedding-party-name">Oscar</span>
+            <span class="wedding-party-role">Groomsmen</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="wedding-party-card">
+        <h3>The Girls</h3>
+        <div class="wedding-party-group">
+          <div class="wedding-party-person">
+            <img class="wedding-party-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' rx='32' fill='%23E7DBC3'/%3E%3Ccircle cx='150' cy='120' r='58' fill='%23A8674A'/%3E%3Cpath d='M70 260c12-54 48-82 80-82s68 28 80 82' fill='%237C8B86'/%3E%3C/svg%3E" alt="Sample wedding party photo">
+            <span class="wedding-party-name">Helen</span>
+            <span class="wedding-party-role">Maid of Honor</span>
+          </div>
+          <div class="wedding-party-person">
+            <img class="wedding-party-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' rx='32' fill='%23E7DBC3'/%3E%3Ccircle cx='150' cy='120' r='58' fill='%23A8674A'/%3E%3Cpath d='M70 260c12-54 48-82 80-82s68 28 80 82' fill='%237C8B86'/%3E%3C/svg%3E" alt="Sample wedding party photo">
+            <span class="wedding-party-name">Hannah</span>
+            <span class="wedding-party-role">Bridesmaid</span>
+          </div>
+          <div class="wedding-party-person">
+            <img class="wedding-party-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' rx='32' fill='%23E7DBC3'/%3E%3Ccircle cx='150' cy='120' r='58' fill='%23A8674A'/%3E%3Cpath d='M70 260c12-54 48-82 80-82s68 28 80 82' fill='%237C8B86'/%3E%3C/svg%3E" alt="Sample wedding party photo">
+            <span class="wedding-party-name">Mae</span>
+            <span class="wedding-party-role">Bridesmaid</span>
+          </div>
+          <div class="wedding-party-person">
+            <img class="wedding-party-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' rx='32' fill='%23E7DBC3'/%3E%3Ccircle cx='150' cy='120' r='58' fill='%23A8674A'/%3E%3Cpath d='M70 260c12-54 48-82 80-82s68 28 80 82' fill='%237C8B86'/%3E%3C/svg%3E" alt="Sample wedding party photo">
+            <span class="wedding-party-name">Maggie</span>
+            <span class="wedding-party-role">Bridesmaid</span>
+          </div>
+          <div class="wedding-party-person">
+            <img class="wedding-party-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' rx='32' fill='%23E7DBC3'/%3E%3Ccircle cx='150' cy='120' r='58' fill='%23A8674A'/%3E%3Cpath d='M70 260c12-54 48-82 80-82s68 28 80 82' fill='%237C8B86'/%3E%3C/svg%3E" alt="Sample wedding party photo">
+            <span class="wedding-party-name">Fiana</span>
+            <span class="wedding-party-role">Bridesmaid</span>
+          </div>
+          <div class="wedding-party-person">
+            <img class="wedding-party-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' rx='32' fill='%23E7DBC3'/%3E%3Ccircle cx='150' cy='120' r='58' fill='%23A8674A'/%3E%3Cpath d='M70 260c12-54 48-82 80-82s68 28 80 82' fill='%237C8B86'/%3E%3C/svg%3E" alt="Sample wedding party photo">
+            <span class="wedding-party-name">Lily</span>
+            <span class="wedding-party-role">Bridesmaid</span>
+          </div>
+          <div class="wedding-party-person">
+            <img class="wedding-party-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' rx='32' fill='%23E7DBC3'/%3E%3Ccircle cx='150' cy='120' r='58' fill='%23A8674A'/%3E%3Cpath d='M70 260c12-54 48-82 80-82s68 28 80 82' fill='%237C8B86'/%3E%3C/svg%3E" alt="Sample wedding party photo">
+            <span class="wedding-party-name">Ashlynn</span>
+            <span class="wedding-party-role">Bridesmaid</span>
+          </div>
+          <div class="wedding-party-person">
+            <img class="wedding-party-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' rx='32' fill='%23E7DBC3'/%3E%3Ccircle cx='150' cy='120' r='58' fill='%23A8674A'/%3E%3Cpath d='M70 260c12-54 48-82 80-82s68 28 80 82' fill='%237C8B86'/%3E%3C/svg%3E" alt="Sample wedding party photo">
+            <span class="wedding-party-name">Madelyn</span>
+            <span class="wedding-party-role">Bridesmaid</span>
+          </div>
+          <div class="wedding-party-person">
+            <img class="wedding-party-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' rx='32' fill='%23E7DBC3'/%3E%3Ccircle cx='150' cy='120' r='58' fill='%23A8674A'/%3E%3Cpath d='M70 260c12-54 48-82 80-82s68 28 80 82' fill='%237C8B86'/%3E%3C/svg%3E" alt="Sample wedding party photo">
+            <span class="wedding-party-name">Tiffany</span>
+            <span class="wedding-party-role">Bridesmaid</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="registry-section grain" aria-labelledby="registry-title">
+  <div class="section-inner">
+    <span class="kicker">a little something for us</span>
+    <h2 class="section-title" id="registry-title">Our registry</h2>
+    <p class="registry-intro">If you’d like to celebrate with us in a meaningful way, these are a few things we’re excited to add to our home and adventures together.</p>
+
+    <div class="registry-scroller" id="registryScroller" role="listbox" aria-label="Wedding registry items">
+      <button class="registry-card active" type="button" role="option" aria-selected="true" data-title="Honeymoon fund" data-description="We’re saving for a cozy getaway to celebrate our first adventure as newlyweds, with a little extra room for a few unforgettable meals and sunsets." data-link="A contribution toward our honeymoon trip would mean the world to us." data-url="">
+        <div>
+          <div class="emoji" aria-hidden="true">🌴</div>
+          <h3>Honeymoon Fund or House Fund</h3>
+          <p>Help us make our first trip as newlyweds a little more memorable with a beautiful getaway, or contribute to our future home.</p>
+        </div>
+        <span class="tag">Tap to view</span>
+      </button>
+      <button class="registry-card" type="button" role="option" aria-selected="false" data-title="Wedding Registry" data-description="We’re building a home full of comfort, coffee, and shared meals—so a few everyday upgrades would be so helpful." data-link="A new coffee setup or kitchen staple would make our mornings feel extra special." data-url="">
+        <div>
+          <div class="emoji" aria-hidden="true">☕</div>
+          <h3>Wedding Registry</h3>
+          <p>If you would like to get us something cool, check out our wedding registry!</p>
+        </div>
+        <span class="tag">Tap to view</span>
+      </button>
+    </div>
+
+    <div class="registry-detail" id="registryDetail" aria-live="polite">
+      <h3 id="registryDetailTitle">Honeymoon Fund or House Fund</h3>
+      <p id="registryDetailText">We’re saving for a cozy getaway to celebrate our first adventure as newlyweds or to purchase our first home as newlyweds.</p>
+      <a class="detail-link" id="registryDetailLink" href="#" target="_blank" rel="noopener noreferrer">A contribution towards either would mean the world to us.</a>
+    </div>
+  </div>
+</section>
+
+<div class="thread-seam thread-seam-1" aria-hidden="true">
+  <canvas id="thread-canvas-1"></canvas>
 </div>
 
 <!-- ============================================================
@@ -769,6 +1083,7 @@
 <footer class="grain">
   <span class="script">see you there</span>
   <p class="names">Tyler Huynh &amp; Maggie Zhu</p>
+  <p class="script">Made with love</p>
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 12c4-6 14-6 18 0M3 12c4 6 14 6 18 0" /></svg>
 </footer>
 
@@ -782,6 +1097,116 @@
       setTimeout(() => window.scrollTo({ top: 0 }), 20);
     }
   })();
+
+  const audioToggle = document.getElementById('audioToggle');
+  let audioContext = null;
+  let audioGain = null;
+  let audioOscillators = [];
+  let audioLfo = null;
+  let audioEnabled = false;
+
+  function setAudioButtonState(isOn){
+    if (!audioToggle) return;
+    audioToggle.classList.toggle('is-on', isOn);
+    audioToggle.setAttribute('aria-pressed', isOn ? 'true' : 'false');
+    audioToggle.textContent = isOn ? '♫ Ambient audio on' : '♫ Ambient audio';
+  }
+
+  function stopAmbientAudio(){
+    if (!audioContext || !audioGain) {
+      audioEnabled = false;
+      setAudioButtonState(false);
+      return;
+    }
+
+    const stopTime = audioContext.currentTime + 0.16;
+    audioGain.gain.cancelScheduledValues(audioContext.currentTime);
+    audioGain.gain.setTargetAtTime(0.0001, audioContext.currentTime, 0.12);
+
+    audioOscillators.forEach(osc => {
+      try { osc.stop(stopTime); } catch (err) {}
+    });
+    if (audioLfo) {
+      try { audioLfo.stop(stopTime); } catch (err) {}
+    }
+
+    audioOscillators = [];
+    audioLfo = null;
+    audioEnabled = false;
+    setAudioButtonState(false);
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('wedding-audio-on', 'false');
+    }
+  }
+
+  async function startAmbientAudio(){
+    if (audioEnabled) return;
+
+    const AudioCtor = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtor) return;
+
+    if (!audioContext) {
+      audioContext = new AudioCtor();
+    }
+
+    if (audioContext.state === 'suspended') {
+      try { await audioContext.resume(); } catch (err) {}
+    }
+
+    if (audioGain) {
+      audioGain.disconnect();
+    }
+
+    audioGain = audioContext.createGain();
+    audioGain.gain.value = 0.0001;
+    audioGain.connect(audioContext.destination);
+
+    const now = audioContext.currentTime;
+    const frequencies = [196, 261.63, 329.63];
+
+    audioOscillators = frequencies.map((freq, index) => {
+      const osc = audioContext.createOscillator();
+      osc.type = index === 1 ? 'sine' : 'triangle';
+      osc.frequency.setValueAtTime(freq, now);
+
+      const gainNode = audioContext.createGain();
+      gainNode.gain.setValueAtTime(0.0001, now);
+      gainNode.gain.linearRampToValueAtTime(index === 1 ? 0.014 : 0.009, now + 0.8);
+
+      osc.connect(gainNode);
+      gainNode.connect(audioGain);
+      osc.start(now);
+      return osc;
+    });
+
+    audioLfo = audioContext.createOscillator();
+    const lfoGain = audioContext.createGain();
+    audioLfo.type = 'sine';
+    audioLfo.frequency.value = 0.08;
+    lfoGain.gain.value = 8;
+    audioLfo.connect(lfoGain);
+    lfoGain.connect(audioOscillators[0].frequency);
+    audioLfo.start(now);
+
+    audioGain.gain.setTargetAtTime(0.028, now + 0.35, 0.25);
+    audioEnabled = true;
+    setAudioButtonState(true);
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('wedding-audio-on', 'true');
+    }
+  }
+
+  audioToggle?.addEventListener('click', async () => {
+    if (audioEnabled) {
+      stopAmbientAudio();
+    } else {
+      await startAmbientAudio();
+    }
+  });
+
+  if (typeof localStorage !== 'undefined' && localStorage.getItem('wedding-audio-on') === 'true') {
+    startAmbientAudio();
+  }
 
   // ---- guest count stepper + dynamic guest-name fields ----
   const countEl = document.getElementById('guestCount');
@@ -933,6 +1358,52 @@
     }
   });
 
+  // ---- wedding registry card interaction ----
+  const registryCards = Array.from(document.querySelectorAll('.registry-card'));
+  const registryDetailTitle = document.getElementById('registryDetailTitle');
+  const registryDetailText = document.getElementById('registryDetailText');
+  const registryDetailLink = document.getElementById('registryDetailLink');
+
+  function applyCardTilt(card, event){
+    const rect = card.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    const rotateY = ((x / rect.width) - 0.5) * 12;
+    const rotateX = ((0.5 - (y / rect.height))) * 10;
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
+  }
+
+  function resetCardTilt(card){
+    card.style.transform = '';
+  }
+
+  function updateRegistryDetail(card){
+    if (!card || !registryDetailTitle || !registryDetailText || !registryDetailLink) return;
+    registryDetailTitle.textContent = card.dataset.title || '';
+    registryDetailText.textContent = card.dataset.description || '';
+    registryDetailLink.textContent = card.dataset.link || '';
+    const url = card.dataset.url || '';
+    registryDetailLink.href = url || '#';
+    registryDetailLink.style.display = url ? 'inline-block' : 'none';
+    registryCards.forEach(item => {
+      const active = item === card;
+      item.classList.toggle('active', active);
+      item.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+  }
+
+  registryCards.forEach(card => {
+    card.addEventListener('mousemove', (event) => applyCardTilt(card, event));
+    card.addEventListener('mouseleave', () => resetCardTilt(card));
+    card.addEventListener('click', () => updateRegistryDetail(card));
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' '){
+        event.preventDefault();
+        updateRegistryDetail(card);
+      }
+    });
+  });
+
   // ---- countdown to the big day ----
   (function initCountdown(){
     const target = new Date('2027-05-15T16:00:00-04:00').getTime();
@@ -1007,7 +1478,7 @@
   loadTally();
 
   // ---- photo carousel ----
-    (function initCarousel(){
+  (function initCarousel(){
     const carouselImages = [
       { src: 'engagement.jpg', caption: "Engagement photos at Lily Lake in Rocky Mountain National Park" }
       // add more objects here: { src: 'photo2.jpg', caption: 'Caption text' }
@@ -1020,6 +1491,8 @@
     if (!imgEl || !dots) return;
 
     let idx = 0;
+    let isTransitioning = false;
+
     function buildDots(){
       dots.innerHTML = '';
       carouselImages.forEach((_, i) => {
@@ -1030,12 +1503,22 @@
         dots.appendChild(d);
       });
     }
+
     function show(i){
+      if (isTransitioning) return;
       idx = (i + carouselImages.length) % carouselImages.length;
       const item = carouselImages[idx];
-      imgEl.src = item.src || item;
-      captionEl.textContent = item.caption || '';
+      isTransitioning = true;
+      imgEl.style.opacity = '0';
+      setTimeout(() => {
+        imgEl.src = item.src || item;
+        captionEl.textContent = item.caption || '';
+        buildDots();
+        imgEl.style.opacity = '1';
+        isTransitioning = false;
+      }, 220);
     }
+
     prevBtn?.addEventListener('click', () => show(idx - 1));
     nextBtn?.addEventListener('click', () => show(idx + 1));
 
